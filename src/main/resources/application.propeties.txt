@@ -17,3 +17,23 @@ spring.jpa.open-in-view=true
 
 # THYMELEAF
 spring.thymeleaf.cache= false
+
+#############
+# POSTGRESQL
+
+spring.jpa.database = POSTGRESQL
+spring.datasource.platform = postgres
+
+spring.datasource.url = jdbc:postgresql://localhost:5432/DBLoja
+spring.datasource.username = postgres
+spring.datasource.password = Root@123
+server.port = 8080
+
+# JPA
+spring.jpa.show-sql = true
+spring.jpa.open-in-view = true 
+spring.jpa.hibernate.ddl-auto=update
+	
+
+# THYMELEAF
+spring.thymeleaf.cache= false  

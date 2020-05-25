@@ -13,6 +13,7 @@ public abstract class AbstractDao<T, PK extends Serializable> {
 	private final Class<T> entityClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass())
 			.getActualTypeArguments()[0];
 
+	@PersistenceContext
 	private EntityManager entityManager;
 
 	protected EntityManager getEntityManager() {
