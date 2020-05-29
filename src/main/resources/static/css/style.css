@@ -3,13 +3,20 @@
  */
 html, body {
 	height: 100%;
-	font-size-adjust;
+	font-size: 13px;
 }
 
 body {
-	padding-top: 56px;
+	padding-top: 52px;
 	padding-left: 0;
+	background-color: #bdbdbd;
+	font-family: sans-serif;
 } 
+
+.conteudo{
+	margin: 0 auto;
+	border-radius: 10px;
+}
 
 /*
  * main layout
@@ -24,13 +31,16 @@ body {
  * Content
  */
 .layout-content {
-    width: 100%;
-    padding-top: 0px;
+    width: 88%;
+    margin: 0 auto 5px auto;
+    background-color: #ffffff8f;
+    border-radius: 10px;
+    /*padding-top: 0px;*/
 }
 
 .container {
 	width: 100%;
-	padding-top: 20px;
+	padding-top: 15px;
 }
 
 /*
@@ -38,15 +48,16 @@ body {
  */
 .sidebar {
     width: 0px;
-    /*height: 100vh;*/
-    height: 100%;
-    border-top: 10px solid #eee;
-    border-radius: 10px;
-    /*border-right: 1px solid #eee; */ 
-    background-color: rgb(130, 121, 118);
+    height: 99%;
+    border-radius: 0 10px 10px 0;
+    background-color: #343a40;
     flex-shrink: 0;
     overflow: hidden;
     transition: width .5s;
+    
+    /*height: 100vh;*/
+    /*border-top: 15px solid #eee;*/
+    /*border-right: 1px solid #eee; */ 
 }
 
 .sidebar .nav {
@@ -58,33 +69,42 @@ body {
 }
 
 .sidebar .nav-item {
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-left: 0px;
+	margin-right: 0px;
 }
 
 .sidebar .nav-link {
-	border-radius: 10px;
+	border-radius: 0px 0px 7px 7px;
 	text-align: center;
 } 
 
 .sidebar ul li:hover a, .menu ul li.active a{
-    color: red;
+    color: #007bff;
+    background-color: #ffffff1c;
+
 }
 
 .sidebar ul{
     list-style: none;
-    padding: 10px 0px;
+    padding: 0px 0px;
+    margin: 0 auto 0 auto;
 }
 
 .sidebar ul li a{
     display: block;
     color: rgb(255, 255, 255);
-    padding: 10px 15px;
+    padding: 10px 5px;
     white-space: nowrap;
 }
 
 .sidebar.sidebar-open {
-    width: 200px;
+    width: 150px;
+}
+
+.sidebar .img-nav {
+	width: 120px;
+	height: 120px;
+	margin: 77px auto 0 15px;
 }
 
 /*
@@ -92,7 +112,7 @@ body {
  */
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
 	color: #fff;
-	background-color: rgb(255, 153, 0);
+	background-color: #007bff;
 }
 
 /*
@@ -104,6 +124,7 @@ body {
     margin-left: 10px;
 }
 
+
 /*
  * Footer
  */
@@ -112,7 +133,7 @@ body {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	margin: 0;
+	margin: 0 auto 0 auto;
 	height: 50px;
 	/*border-top: 1px solid #ff0000;*/
 }
