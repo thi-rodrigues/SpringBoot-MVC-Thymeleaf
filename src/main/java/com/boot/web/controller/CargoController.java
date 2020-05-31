@@ -55,7 +55,7 @@ public class CargoController {
 	public String editar(Cargo cargo, RedirectAttributes attr) {
 		cargoService.editar(cargo);
 		attr.addFlashAttribute("success", "Registro atualizado com sucesso.");
-		return "redirect:/cargos/cadastrar";
+		return "redirect:/cargos/listar";
 	}
 	
 	@GetMapping("/excluir/{id}")

@@ -37,7 +37,7 @@
 	                    <tbody>
 	                    <tr th:each=" d : ${departamentos}"> <!--  Variavel que contem a lista -->
 	                        <td th:text="${d.id}">3</td>
-	                        <td th:text="${d.nome}">Administração</td>
+	                        <td th:text="${d.nome}"></td>
 	                        
 	                        <td colspan="2">
 	                            <a class="btn btn-info btn-sm" th:href="@{/departamentos/editar/{id} (id=${d.id}) }" role="button">

@@ -101,18 +101,13 @@ body {
     width: 150px;
 }
 
-.sidebar .img-nav {
-	width: 120px;
-	height: 120px;
-	margin: 77px auto 0 15px;
-}
-
 /*
  * nav-pills home
  */
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
 	color: #fff;
 	background-color: #007bff;
+	
 }
 
 /*
