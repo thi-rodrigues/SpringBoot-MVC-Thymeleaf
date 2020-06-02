@@ -59,6 +59,12 @@ public class FuncionarioController {
 		return "/funcionario/lista";
 	}
 	
+	@GetMapping("/buscar/cargo")
+	public String getPorCargo(@RequestParam("id") Long id, ModelMap model) {
+		model.addAttribute("funcionarios", funcionarioService.buscarPorCargo(id));
+		return "funcionario/lista";
+	}
+	
 	@PostMapping("/editar")
 	public String editar(Funcionario funcionario, RedirectAttributes attr) {
 		funcionarioService.editar(funcionario);
