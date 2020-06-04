@@ -1,5 +1,6 @@
 package com.boot.web.dao;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.boot.web.domain.Funcionario;
@@ -19,4 +20,10 @@ public interface FuncionarioDao {
 	List<Funcionario> findByNome(String nome);
 
 	List<Funcionario> findByCargoId(Long id);
+
+	List<Funcionario> findByDataEntradaDataSaida(LocalDate entrada, LocalDate saida);
+
+	List<Funcionario> findByDataEntrada(LocalDate entrada);
+
+	List<Funcionario> findByDataSaida(LocalDate saida);
 }
