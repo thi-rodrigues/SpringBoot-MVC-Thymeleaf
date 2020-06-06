@@ -1,6 +1,12 @@
 package com.boot.web.domain;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @SuppressWarnings("serial")
 @Entity
@@ -16,10 +22,12 @@ public class Endereco extends AbstractEntity<Long> {
 	@Column(nullable = false)
 	private String cidade;
 
+	@NotNull(message = "Informe a UF do(a) funcionário(a).")
 	@Column(nullable = false, length = 2)
 	@Enumerated(EnumType.STRING)
 	private UF uf;
 
+	@Size(min = 9, message = "O CEP deve conter {min} caracteres.")
 	@Column(nullable = false, length = 9)
 	private String cep;
 	

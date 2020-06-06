@@ -13,6 +13,10 @@ body {
 	font-family: sans-serif;
 } 
 
+.tbodyF td{
+	text-align:center;
+}
+
 .conteudo{
 	margin: 0 auto;
 	border-radius: 10px;
@@ -23,7 +27,7 @@ body {
  */
 .layout-main {
     display: flex;
-    min-height: calc(100vh - 52px);
+    min-height: calc(98vh - 69px);
     overflow: hidden;
 }
 
@@ -124,13 +128,11 @@ body {
  * Footer
  */
 .layout-footer {
-	position: fixed;
-	left: 0;
+	position: relative;
+	margin: -8px auto 0 auto;
+	/*left: 0;
 	right: 0;
-	bottom: 0;
-	margin: 0 auto 0 auto;
-	height: 50px;
-	/*border-top: 1px solid #ff0000;*/
+	bottom: 0;*/
 }
 
 .footer-copy {
