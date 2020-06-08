@@ -35,7 +35,7 @@
 	                    </tr>
 	                    </thead>
 	                    <tbody>
-	                    <tr th:each=" d : ${departamentos}"> <!--  Variavel que contem a lista -->
+	                    <tr th:each=" d : ${pageDepartamento.registros}"> <!--  Variavel que contem a lista -->
 	                        <td th:text="${d.id}">3</td>
 	                        <td th:text="${d.nome}"></td>
 	                        
@@ -51,6 +51,30 @@
 	                    </tr>
 	                    </tbody>
 	                </table>
+	                
+				<nav aria-label="Page navigation example">
+				  <ul class="pagination justify-content-center">
+				    <li class="page-item">
+				     	 <a class="page-link" th:href="@{/departamentos/listar(page=${1})}" tabindex="-1">First</a>
+				     </li>
+				    <li th:class="${pageDepartamento.pagina == 1} ? 'page-item disabled' : 'page-item'"> 
+				      	<a class="page-link" th:href="@{/departamentos/listar(page=${pageDepartamento.pagina -1})}" tabindex="-1">Prev</a>
+				    </li>
+				    <li class="page-item">
+				    	<span class="page-link" th:text="|${pageDepartamento.pagina} de ${pageDepartamento.totalDePaginas}|"></span>
+				    </li>
+				    <li th:class="${pageDepartamento.pagina == pageDepartamento.totalDePaginas} ? 'page-item disabled' : 'page-item'">
+				     	 <a class="page-link" 
+				      	th:href="@{/departamentos/listar(page=${pageDepartamento.pagina + 1})}">Next</a>
+				    </li>
+				    <li th:class="page-item">
+				    	<a class="page-link" th:href="@{/departamentos/listar(page=${pageDepartamento.totalDePaginas})}"
+				    	tabindex="-1">Last</a>
+
+				    </li>
+				  </ul>
+				</nav>
+				
 	            </div>
 	        </div>
 				<div th:replace="fragments/modal :: modal"></div>

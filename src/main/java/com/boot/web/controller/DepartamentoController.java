@@ -1,5 +1,7 @@
 package com.boot.web.controller;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,17 +12,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.boot.web.domain.Departamento;
 import com.boot.web.service.DepartamentoService;
+import com.boot.web.util.PaginacaoUtil;
 
 @Controller
 @RequestMapping("/departamentos")
 public class DepartamentoController {
 
 	@Autowired
-	private DepartamentoService service;
+	private DepartamentoService departamentoService;
 
 	@GetMapping("/cadastrar")
 	public String cadastrar(Departamento departamento) {
@@ -28,8 +32,13 @@ public class DepartamentoController {
 	}
 
 	@GetMapping("/listar")
-	public String listar(ModelMap model) {
-		model.addAttribute("departamentos", service.buscarTodos());
+	public String listar(ModelMap model, @RequestParam("page") Optional<Integer> page) {
+		 
+		int paginaAtual = page.orElse(1);
+		
+		PaginacaoUtil<Departamento> pageDepartamento = departamentoService.buscaPorPagina(paginaAtual);
+		
+		model.addAttribute("pageDepartamento", pageDepartamento);
 		return "departamento/lista";
 	}
 
@@ -39,14 +48,14 @@ public class DepartamentoController {
 			return "departamento/cadastro";
 		}
 		
-		service.salvar(departamento);
+		departamentoService.salvar(departamento);
 		attr.addFlashAttribute("success", "Departamento salvo com sucesso.");
 		return "redirect:/departamentos/listar";
 	}
 
 	@GetMapping("/editar/{id}")
 	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
-		model.addAttribute("departamento", service.buscarPorId(id));
+		model.addAttribute("departamento", departamentoService.buscarPorId(id));
 		return "departamento/cadastro";
 	}
 
@@ -56,19 +65,19 @@ public class DepartamentoController {
 			return "departamento/cadastro";
 		}
 		
-		service.editar(departamento);
+		departamentoService.editar(departamento);
 		attr.addFlashAttribute("success", "Departamento atualizado com sucesso.");
 		return "redirect:/departamentos/listar";
 	}
 
 	@GetMapping("/excluir/{id}")
 	public String excluir(@PathVariable("id") Long id, ModelMap model) {
-		if (service.departamentoTemCargos(id)) {
+		if (departamentoService.departamentoTemCargos(id)) {
 			model.addAttribute("fail", "Departamento não removido. Possui cargo(s) cadastrado(s).");
 		} else {
-			service.excluir(id);
+			departamentoService.excluir(id);
 			model.addAttribute("success", "Departamento excluído com sucesso.");
 		}
-		return listar(model);
+		return "redirect:/departamentos/listar";
 	}
 }
