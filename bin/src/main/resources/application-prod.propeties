@@ -1,0 +1,12 @@
+# MySQL 									mysql://[username]    : [password] @ [host] / [database]
+spring.datasource.url=CLEARDB_DATABASE_URL: mysql://b977a1e7ebe8b8:8e0f643d@us-cdbr-east-05.cleardb.net/heroku_4548b196f244993?reconnect=true
+
+
+# JPA
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL8Dialect
+spring.jpa.hibernate.ddl-auto= update
+spring.jpa.show-sql= false
+spring.jpa.open-in-view=true 
+
+# THYMELEAF
+spring.thymeleaf.cache= true
