@@ -22,7 +22,7 @@ public class Endereco extends AbstractEntity<Long> {
 	@Column(nullable = false)
 	private String cidade;
 
-	@NotNull(message = "Informe a UF do(a) funcionário(a).")
+	@NotNull(message = "Informe o UF do(a) funcionário(a).")
 	@Column(nullable = false, length = 2)
 	@Enumerated(EnumType.STRING)
 	private UF uf;
@@ -32,7 +32,7 @@ public class Endereco extends AbstractEntity<Long> {
 	private String cep;
 	
 	@Column(nullable = false, length = 5)
-	private Integer numero;
+	private String numero;
 	
 	private String complemento;
 
@@ -76,11 +76,11 @@ public class Endereco extends AbstractEntity<Long> {
 		this.cep = cep;
 	}
 
-	public Integer getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(Integer numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 

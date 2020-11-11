@@ -26,11 +26,11 @@ public class Funcionario extends AbstractEntity<Long> {
 	
 	@NotNull(message = "Informe a data de entrada.")
 	@DateTimeFormat(iso = ISO.DATE)
-	@Column(name = "data_entrada", nullable = false, columnDefinition = "DATE")
+	@Column(name = "dataEntrada", nullable = false, columnDefinition = "DATE")
 	private LocalDate dataEntrada;
 	
 	@DateTimeFormat(iso = ISO.DATE)
-	@Column(name = "data_saida", columnDefinition = "DATE")
+	@Column(name = "dataSaida", columnDefinition = "DATE")
 	private LocalDate dataSaida;
 	
 	@Valid
